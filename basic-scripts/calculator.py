@@ -1,4 +1,4 @@
-firstNumber = float(input('First number: '))
+first_number = float(input('First number: '))
 
 print("""
     Accepted operations:
@@ -8,28 +8,28 @@ print("""
 
 option = input('Option: ')
 
-acceptedOptions = ['+', '-', '*', '/', '%', '^']
+accepted_options = ['+', '-', '*', '/', '%', '^']
 
-if option in acceptedOptions:
-    secondNumber = float(input('Second number: '))
+if option in accepted_options:
+    second_number = float(input('Second number: '))
 
     if option == '+':
-        total = firstNumber + secondNumber
+        total = first_number + second_number
     elif option == '-':
-        total = firstNumber - secondNumber
+        total = first_number - second_number
     elif option == '*':
-        total = firstNumber * secondNumber
+        total = first_number * second_number
     elif option == '/':
-        total = firstNumber / secondNumber
+        total = first_number / second_number
     elif option == '%':
-        total = firstNumber % secondNumber
+        total = first_number % second_number
     elif option == '^':
-        total = firstNumber ** secondNumber
+        total = first_number ** second_number
     else:
         print('What heck is this ???')
         exit()
 else:
-    print('Invalid Option: {inputedOption}. Try again.'.format(inputedOption=option))
+    print('Invalid Option: {inputed_option}. Try again.'.format(inputed_option=option))
     exit()
 
-print('{number1} {option} {number2} = {total}'.format(number1=firstNumber, number2=secondNumber, option=option, total=total))
+print('{number1} {option} {number2} = {total}'.format(number1=first_number, number2=second_number, option=option, total=total))
