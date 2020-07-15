@@ -9,7 +9,7 @@ while True:
 
     option = input('Option: ')
 
-    accepted_options = ['+', '-', '*', '/', '%', '^', 'h']
+    accepted_options = ('+', '-', '*', '/', '%', '^', 'h')
 
     if option in accepted_options:
         second_number = float(input('Second number: '))
