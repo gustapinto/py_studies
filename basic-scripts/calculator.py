@@ -1,30 +1,35 @@
-#python calculator, now with Ifs
 firstNumber = float(input('First number: '))
 
-print('Select a option \n',
-    '[+] Sum \n',
-    '[-] Subtraction \n',
-    '[*] Multiplication \n',
-    '[/] Division \n',
-    '[m] Module \n',
-    '[^] Exponenciation'
-)
+print("""
+    Accepted operations:
+    [+] Sum              [*] Multiplication      [%] Module
+    [-] Subtraction      [/] Division            [^] Exponentiation
+""")
 
 option = input('Option: ')
-secondNumber = float(input('Second number: '))
-print('')
 
-if option == '+':
-    total = firstNumber + secondNumber
-elif option == '-':
-    total = firstNumber - secondNumber
-elif option == '*':
-    total = firstNumber * secondNumber
-elif option == '/':
-    total = firstNumber / secondNumber
-elif option == 'm':
-    total = firstNumber % secondNumber
-elif option == '^':
-    total = firstNumber ** secondNumber
+acceptedOptions = ['+', '-', '*', '/', '%', '^']
 
-print('Total:', total)
+if option in acceptedOptions:
+    secondNumber = float(input('Second number: '))
+
+    if option == '+':
+        total = firstNumber + secondNumber
+    elif option == '-':
+        total = firstNumber - secondNumber
+    elif option == '*':
+        total = firstNumber * secondNumber
+    elif option == '/':
+        total = firstNumber / secondNumber
+    elif option == '%':
+        total = firstNumber % secondNumber
+    elif option == '^':
+        total = firstNumber ** secondNumber
+    else:
+        print('What heck is this ???')
+        exit()
+else:
+    print('Invalid Option: {inputedOption}. Try again.'.format(inputedOption=option))
+    exit()
+
+print('{number1} {option} {number2} = {total}'.format(number1=firstNumber, number2=secondNumber, option=option, total=total))
