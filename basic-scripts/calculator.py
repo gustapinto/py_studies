@@ -5,7 +5,9 @@ print('Select a option \n',
     '[+] Sum \n',
     '[-] Subtraction \n',
     '[*] Multiplication \n',
-    '[/] Division'
+    '[/] Division \n',
+    '[m] Module \n',
+    '[^] Exponenciation'
 )
 
 option = input('Option: ')
@@ -20,5 +22,9 @@ elif option == '*':
     total = firstNumber * secondNumber
 elif option == '/':
     total = firstNumber / secondNumber
+elif option == 'm':
+    total = firstNumber % secondNumber
+elif option == '^':
+    total = firstNumber ** secondNumber
 
 print('Total:', total)
