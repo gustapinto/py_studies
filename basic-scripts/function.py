@@ -1,11 +1,30 @@
-#some simple function example
+#some simple function examples
+
+number1 = float(input('Number: '))
+number2 = float(input('Another Number: '))
 
 #declaring the function with def
 def plus(a, b):
     return a + b
 
-number1 = int(input())
-number2 = int(input())
+print('Sum = {}'.format(plus(number1, number2))) #call with ordered arguments
 
-print(plus(number1, number2))
+def printSomeoneSayingSomething(name, city, state):
+    print("Hi there i'm {name}, from {city}-{state}.".format(name=name,city=city,state=state))
 
+printSomeoneSayingSomething('Dave', 'Leme', 'SP') #call with ordered arguments
+
+printSomeoneSayingSomething(city='Araras', name='Carlinhos Brown', state='SP') #call with named arguments
+
+#create a first class function
+def firstClassFunction(name1):
+    #    The first class fucntion is a function that return
+    #    another function, and can be storaged in variables or constants
+
+    def someOtherFunction(name2):
+        return print('{name1} != {name2}'.format(name1=name1, name2=name2))
+
+    return someOtherFunction
+
+add_name = firstClassFunction('Josias')
+add_name('Cléber')
