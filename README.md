@@ -1,2 +1,2 @@
-# python-studies
-To boldly go where no man has gone. Python
+# Python Studies
+to boldly go where literally everybody has gone nowadays. Aka Python
