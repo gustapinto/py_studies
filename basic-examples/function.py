@@ -28,3 +28,6 @@ def firstClassFunction(name1):
 
 add_name = firstClassFunction('Josias')
 add_name('Cléber')
+
+#creates a anonymous function with lambda
+(lambda n1, n2: print('This Sum was done with lambda = {total}'.format(total=n1+n2)))(number1, number2)
