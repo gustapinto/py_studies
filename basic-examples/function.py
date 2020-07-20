@@ -31,3 +31,7 @@ add_name('Cléber')
 
 #creates a anonymous function with lambda
 (lambda n1, n2: print('This Sum was done with lambda = {total}'.format(total=n1+n2)))(number1, number2)
+
+#the lambda function can also be inserted into a variable
+lambda_in_a_var = lambda a, b: print(a * b)
+lambda_in_a_var(4, 5)
