@@ -8,7 +8,7 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /usr/src/app
+        target: /scripts
     command: tail -f /dev/null
     depends_on:
       - 'mysql'
