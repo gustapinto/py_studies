@@ -8,7 +8,7 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /scripts
+        target: /py_docker
     command: tail -f /dev/null
     depends_on:
       - 'mysql'
