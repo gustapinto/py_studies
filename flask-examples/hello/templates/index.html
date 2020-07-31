@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Flask Index{% endblock %}
+
+{% block content %}
+<div class="container">
+  <!-- Apply some logic with Jinja -->
+  {% if name %}
+    <p>Hello {{ name }} with Flask + HTML</p>
+  {% else %}
+    <p>Hello World with Flask + HTML</p>
+  {% endif %}
+
+  <form method="POST" action="/method/">
+    <button type="submit">Test POST route</button>
+  </form>
+
+  <form method="GET" action="/method/">
+    <button type="submit">Test GET route</button>
+  </form>
+</div>
+{% endblock %}
