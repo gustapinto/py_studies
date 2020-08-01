@@ -17,10 +17,19 @@ def index(name=None):
 from flask import request
 
 @app.route('/method/', methods=['GET', 'POST'])
-def goodbye():
+def methods_example():
+    # Working with POST/GET requests, using the index forms
     if request.method == 'POST':
-        return 'POST method was used'
+        if request.form['post-name']:
+            return f"Hey, hello {request.form['post-name']} welcome to POST."
+
+        return "POST method was used."
+
     elif request.method == 'GET':
-        return 'GET method was used'
+        if request.args.get('get-name', ''):
+            return f"Hey, hello {request.args.get('get-name', '')}, welcome to GET."
+
+        return "GET method was used"
+
     else:
-        return 'I really dont know'
+        return "What heck dude  "
