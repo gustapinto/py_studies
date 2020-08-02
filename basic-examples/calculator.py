@@ -1,47 +1,47 @@
+import sys
+
+print('''
+|----------------------------------------------------------------|
+|                     Accepted operations                        |
+|----------------------------------------------------------------|
+|  [+] Sum            [*] Multiplication    [%] Module           |
+|  [-] Subtraction    [/] Division          [**] Exponentiation  |
+|----------------------------------------------------------------|
+''')
+
+accepted_operators = ('+', '-', '*', '/', '%', '**')
+
 while True:
-    first_number = float(input('First number: '))
+    try:
+        n1 = float(input('First number: '))
+        operator = input('Math operator: ')
 
-    print("""
-        Accepted operations:
-        [+] Sum              [*] Multiplication      [%] Module
-        [-] Subtraction      [/] Division            [^] Exponentiation
-    """)
+        if operator in accepted_operators:
+            n2 = float(input('Second number: '))
 
-    option = input('Option: ')
+            total = eval(str(n1) + operator + str(n2))
 
-    accepted_options = ('+', '-', '*', '/', '%', '^', 'h')
-
-    if option in accepted_options:
-        second_number = float(input('Second number: '))
-
-        if option == '+':
-            total = first_number + second_number
-        elif option == '-':
-            total = first_number - second_number
-        elif option == '*':
-            total = first_number * second_number
-        elif option == '/':
-            total = first_number / second_number
-        elif option == '%':
-            total = first_number % second_number
-        elif option == '^':
-            total = first_number ** second_number
+            print(f"{n1} {operator} {n2} = {total}")
         else:
-            print('What heck is this ???')
-            exit()
-    else:
-        print('Invalid Option: {inputed_option}. Try again.'.format(inputed_option=option))
-        exit()
+            print(f'Invalid math operator.')
 
-    print('{number1} {option} {number2} = {total}'.format(number1=first_number, number2=second_number, option=option, total=total))
+    except:
+        error = sys.exc_info()[0]
 
-    answer = input('[yes/no] Run again? ')
-
-    if answer in ('yes', 'no'):
-        if answer == 'yes':
-            continue
+        if error == ZeroDivisionError:
+            print("Can't divide or module a number by 0.")
+        elif error == ValueError:
+            print("A letter or a simbol isn't a number.")
         else:
-            exit()
+            print(f'Error code: {error}')
+
+    answer = input('\n[yes/no] Run again? ')
+
+    if answer in ('yes', 'y'):
+        print('')
+
+        continue
     else:
-        print('Invalid Input.')
-        exit()
+        print('Goodbye.')
+
+        break
