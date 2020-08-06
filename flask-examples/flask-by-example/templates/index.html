@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask By Example</title>
+  </head>
+  <body>
+    <div>
+      <h1>Wordcount 9000</h1>
+
+      <form method="POST" action="/">
+        <div>
+          <input type="text" name="url" placeholder="Enter a URL">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+
+      <br/>
+
+      <div>
+        {% for error in errors %}
+          <h4>{{ error }}</h4>
+        {% endfor %}
+      </div>
+
+      <div>
+        {% if results %}
+          <h2>Frequencies</h2>
+          <br>
+          <div id="results">
+            <table>
+              <thead>
+                <tr>
+                  <th>Word</th>
+                  <th>Word</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for result in results %}
+                    <tr>
+                      <th>{{ result[0] }}</th>
+                      <th>{{ result[1] }}</th>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </body>
+</html>
