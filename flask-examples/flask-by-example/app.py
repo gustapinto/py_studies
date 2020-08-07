@@ -38,13 +38,13 @@ def index():
         if r:
             raw = BeautifulSoup(r.text, 'html.parser').get_text()
 
-            nltk.data.path.append('./nltk_data/')   
+            nltk.data.path.append('./nltk_data/')
             tokens = nltk.word_tokenize(raw)
             text = nltk.Text(tokens)
 
             nonPunct = re.compile('.*[A-Za-z]*.')
 
-            raw_words = [w for w in text if raw_words if nonPunct.match(w)]
+            raw_words = [w for w in text if nonPunct.match(w)]
             raw_words_count = Counter(raw_words)
 
             no_stop_words = [w for w in raw_words if w.lower not in stops]
@@ -55,11 +55,10 @@ def index():
                              reverse=True)
 
             try:
-                result = Result(
-                    url=url,
-                    result_all=raw_words_count,
-                    result_no_stop_words=no_stop_words_count
-                )
+                result = Result(url=url,
+                                result_all=raw_words_count,
+                                result_no_stop_words=no_stop_words_count)
+
                 db.session.add(result)
                 db.session.commit()
             except:
