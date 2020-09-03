@@ -1,37 +1,33 @@
-#some simple function examples
+''' Some function implementation examples'''
 
-number1 = float(input('Number: '))
-number2 = float(input('Another Number: '))
+# Declare a function with def
+def plus(n1, n2):
+    return n1 + n2
 
-#declaring the function with def
-def plus(a, b):
-    return a + b
+print(f'Ordered sum = {plus(2, 3)}')  # Call function w/ordered parameters
+print(f'Named sum = {plus(n2=6, n1=7.5)}')  # Call function w/named parameters
 
-print('Sum = {}'.format(plus(number1, number2))) #call with ordered arguments
+# Create a first class function
+# The first class function returns another function
+def first_class_function(name1):
+    def function_inside_function(name2):
+        comparator = "!="
 
-def printSomeoneSayingSomething(name, city, state):
-    print("Hi there i'm {name}, from {city}-{state}.".format(name=name,city=city,state=state))
+        if (name1 == name2):
+            comparator = "="
 
-printSomeoneSayingSomething('Dave', 'Leme', 'SP') #call with ordered arguments
+        return print(f'{name1} {comparator} {name2}')
 
-printSomeoneSayingSomething(city='Araras', name='Carlinhos Brown', state='SP') #call with named arguments
+    return function_inside_function
 
-#create a first class function
-def firstClassFunction(name1):
-    #    The first class fucntion is a function that return
-    #    another function, and can be storaged in variables or constants
+# The first class functions can be storaged in variables
+compare_names = first_class_function(name1='Josias')
+compare_names(name2='Cléber')
+compare_names(name2='Josias')
 
-    def someOtherFunction(name2):
-        return print('{name1} != {name2}'.format(name1=name1, name2=name2))
+# Creates a anonymous function with lambda
+(lambda n1, n2: print(f'This Sum was done with lambda = {n1 + n2}'))(2, 4)
 
-    return someOtherFunction
-
-add_name = firstClassFunction('Josias')
-add_name('Cléber')
-
-#creates a anonymous function with lambda
-(lambda n1, n2: print('This Sum was done with lambda = {total}'.format(total=n1+n2)))(number1, number2)
-
-#the lambda function can also be inserted into a variable
-lambda_in_a_var = lambda a, b: print(a * b)
+# Lambda functions can also be inserted into variables
+lambda_in_a_var = lambda n1, n2: print(f'Lambda in a var sum = {n1 + n2}')
 lambda_in_a_var(4, 5)
