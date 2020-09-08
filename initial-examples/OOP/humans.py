@@ -32,17 +32,3 @@ class Cyborg(Human, Computer):
         # Explicit define the __init__(s) instead of using super().Class
         Human.__init__(self, *args, **kwargs)
         Computer.__init__(self, *args, **kwargs)
-
-
-''' Create a abstract class, that cannot be instantied and serves as
-    a model, being a generic superclass
-'''
-from abc import ABC, abstractmethod
-
-class Abstract(ABC):
-    def __init__(self, *args, **kwargs):
-        self.id = id
-
-    @abstractmethod
-    def print_info(self):
-        print(self.id)
