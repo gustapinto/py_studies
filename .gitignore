@@ -5,3 +5,9 @@
 *.csv
 
 .ipynb_checkpoints/
+
+*.log
+
+*.pid
+
+export_env_vars.sh
