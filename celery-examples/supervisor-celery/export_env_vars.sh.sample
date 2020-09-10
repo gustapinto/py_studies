@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export REPO_PATH="/complete/path/to/this/repository"
+
+export CELERY_PATH="/path/to/celery/env/bin"
+
+export SUPERVISORD_USER="user"
+
+source ~/.bashrc
