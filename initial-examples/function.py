@@ -1,11 +1,12 @@
 """ Some function implementation examples """
 
+""" Declaring functions and their 'types' """
 # Declare a function with def
 def plus(n1, n2):
     return n1 + n2
 
-# Create a first class function
-# The first class function returns another function
+# Create a first class function, the first class function returns another
+# function, like a closure
 def first_class_function(name1):
     def function_inside_function(name2):
         comparator = "!="
@@ -57,3 +58,31 @@ def kwargs_function(**kwargs):
 
 args_function(1, 2, 3)
 kwargs_function(key1=1, key2=2, key3=3)
+
+""" A look on function's return """
+
+# The return statements is used to explicit return a value(object) from a code
+# block
+def explicit_function():
+    return 'something'  # Explicit return 'something'
+
+# If the return statement isn't supplied Python will return a implicit value of
+# None
+def implicit_function():
+    'something'
+
+print(explicit_function())
+print(implicit_function())
+
+# Python functions can also return multiple results
+def multiple_return_function():
+    return 'something', 'is', 'very', 'implicit'
+
+# The multiple results can be used on one variable as a tuple:
+multiple = multiple_return_function()
+
+print(multiple)
+
+# Or can be unpacked in several unique variables
+var1, var2, var3, var4 = multiple_return_function()
+print(var1, var2, var3, var4)
